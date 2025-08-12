@@ -6,15 +6,16 @@ from src.prompts import generate_prompt
 from src.openai_api_connections import send_request
 from src.api_example import parse_recipe
 from src.use_model_food5k import is_food
+from src.use_model_food11 import get_food
 
-
+selected_image = None
 
 def process():
     global selected_image
-    if selected_image is None:
+    if not selected_image:
         messagebox.showinfo("Info", "Please select an image.")
     elif is_food(selected_image):
-        identified_food = "pho"
+        identified_food = get_food(selected_image)
         prompt = generate_prompt(identified_food)
         openai_api_key = os.getenv("APIKEY")
         response = send_request(prompt, openai_api_key)
@@ -27,7 +28,7 @@ def select_image():
     global selected_image
     print("Select image")
     selected_image = filedialog.askopenfilename(title="Select Image",
-                                          filetypes=[("Image files", ("*.png", "*.jpg"))])
+                                          filetypes=[("Image files", ("*.png", "*.jpg", "*.jpeg"))])
 
 
 def main():

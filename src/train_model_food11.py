@@ -1,9 +1,6 @@
 import tensorflow as tf
-from keras.datasets import cifar10
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D, BatchNormalization, Input
-from keras import regularizers
-from keras.optimizers import Adam
 
 #Warning: This project is computationally intensive and it may take a long time to run. You can reduce the number of training epochs (from 200 to 10) to see less accurate results in less time.
 train_ds = tf.keras.utils.image_dataset_from_directory(
@@ -12,7 +9,6 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     label_mode='int',
     batch_size=32,
     shuffle=True,
-
     seed=123
 )
 

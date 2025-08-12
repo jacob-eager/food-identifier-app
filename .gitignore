@@ -3,3 +3,5 @@
 data/
 food-11_data/
 .env
+src/__pycache__
+
