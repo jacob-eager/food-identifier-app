@@ -1,6 +1,6 @@
 def generate_prompt(food_name):
     prompt = f"""
-You are tasked with generating a recipe for the given food name.
+You are tasked with generating a recipe for the given food name: {food_name}.
 
 **Requirements:**
 - Include a complete list of ingredients with quantities.
@@ -17,3 +17,5 @@ RECIPE_START
 RECIPE_END
 
 ---
+"""
+    return prompt

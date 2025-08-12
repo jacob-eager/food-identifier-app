@@ -1,3 +1,5 @@
 .venv/
 .idea/
 data/
+food-11_data/
+.env
